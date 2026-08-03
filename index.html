@@ -28,27 +28,35 @@
     padding:20px;
     box-sizing:border-box;
   }
+  p{
+    max-width:320px;
+    line-height:1.5;
+  }
   a{
-    margin-top:16px;
-    color:#0B2545;
+    margin-top:24px;
+    display:inline-block;
+    background:#0B2545;
+    color:white;
+    text-decoration:none;
     font-weight:bold;
+    padding:14px 28px;
+    border-radius:30px;
   }
 </style>
 </head>
-<body>
-  <p>Opening Sermon Library in <span id="countdown">5</span> seconds...</p>
-  <a href="https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec">Tap here to go now</a>
+<body id="landingBody" style="display:none;">
+  <p>Tip: tap the menu (⋮) and choose "Add to Home screen" now, then tap the button below whenever you're ready.</p>
+  <a href="https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec">Open Sermon Library</a>
+
   <script>
-    var seconds = 5;
-    var countdownEl = document.getElementById("countdown");
-    var timer = setInterval(function(){
-      seconds--;
-      countdownEl.textContent = seconds;
-      if (seconds <= 0) {
-        clearInterval(timer);
-        window.location.href = "https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec";
-      }
-    }, 1000);
+    var appUrl = "https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec";
+    var isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+
+    if (isStandalone) {
+      window.location.replace(appUrl);
+    } else {
+      document.getElementById("landingBody").style.display = "flex";
+    }
   </script>
 </body>
 </html>
