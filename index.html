@@ -13,25 +13,42 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0B2545">
 
-<meta http-equiv="refresh" content="0; url=https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec">
-
 <style>
   body{
     font-family:Arial,sans-serif;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
     min-height:100vh;
     margin:0;
     background:#f3f6fb;
     color:#0B2545;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+  }
+  a{
+    margin-top:16px;
+    color:#0B2545;
+    font-weight:bold;
   }
 </style>
 </head>
 <body>
-  <p>Opening Sermon Library...</p>
+  <p>Opening Sermon Library in <span id="countdown">5</span> seconds...</p>
+  <a href="https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec">Tap here to go now</a>
   <script>
-    window.location.href = "https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec";
+    var seconds = 5;
+    var countdownEl = document.getElementById("countdown");
+    var timer = setInterval(function(){
+      seconds--;
+      countdownEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = "https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec";
+      }
+    }, 1000);
   </script>
 </body>
 </html>
