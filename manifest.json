@@ -1,7 +1,7 @@
 {
-  "name": "KKSermon",
-  "short_name": "KKSermon",
-  "start_url": "https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec",
+  "name": "TJC KK",
+  "short_name": "TJC KK",
+  "start_url": "https://tjckkmmu.github.io/mmu-unit/",
   "display": "standalone",
   "background_color": "#f3f6fb",
   "theme_color": "#0B2545",
