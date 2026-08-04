@@ -1,1 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>True Jesus Church Kota Kinabalu</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tjckkmmu/mmu-unit/main/tjc_icon_512.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/tjckkmmu/mmu-unit/main/tjc_icon_512.png">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TJC KK">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0B2545">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
 
+:root{
+  --navy:#0B2545;
+  --navy-light:#1F5FAF;
+  --teal:#0f7d8f;
+  --teal-light:#e4f2f4;
+  --bg:#f3f6fb;
+  --paper:#ffffff;
+  --ink:#1c2b3a;
+  --ink-soft:#5b6b7a;
+  --hair:#e1e7f0;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',Arial,sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+
+.wrap{
+  max-width:520px;
+  margin:0 auto;
+  min-height:100vh;
+  background:var(--bg);
+}
+
+.masthead{
+  background:var(--paper);
+  padding:22px 20px 16px;
+  text-align:center;
+  border-bottom:1px solid var(--hair);
+}
+
+.masthead img{
+  width:44px;
+  height:44px;
+  display:block;
+  margin:0 auto 8px;
+}
+
+.masthead h1{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:20px;
+  margin:0;
+  color:var(--navy);
+  letter-spacing:.2px;
+}
+
+.masthead p{
+  font-size:12px;
+  color:var(--ink-soft);
+  margin:3px 0 0;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+
+.topnav{
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  padding:10px 14px;
+  background:var(--paper);
+  border-bottom:1px solid var(--hair);
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.topnav::-webkit-scrollbar{ display:none; }
+
+.topnav a{
+  flex:0 0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  width:64px;
+  padding:6px 2px;
+  text-decoration:none;
+  color:var(--ink-soft);
+  border-radius:10px;
+}
+
+.topnav a.primary{
+  color:var(--teal);
+}
+
+.topnav a span.ic{
+  width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+}
+
+.topnav a span.lb{
+  font-size:9px;
+  text-align:center;
+  line-height:1.15;
+  font-weight:500;
+}
+
+.section{
+  padding:18px 16px 4px;
+}
+
+.section-label{
+  font-size:11px;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin:0 0 8px;
+  font-weight:600;
+}
+
+.sermon-cta{
+  margin:16px;
+  background:var(--navy);
+  border-radius:14px;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+  color:#fff;
+}
+
+.sermon-cta .icwrap{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:rgba(255,255,255,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  flex-shrink:0;
+}
+
+.sermon-cta .txt p:first-child{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:16px;
+  margin:0 0 2px;
+}
+
+.sermon-cta .txt p:last-child{
+  font-size:12px;
+  margin:0;
+  opacity:.75;
+}
+
+.carousel{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--paper);
+  border:1px solid var(--hair);
+}
+
+.carousel-track{
+  display:flex;
+  transition:transform .4s ease;
+}
+
+.slide{
+  flex:0 0 100%;
+  padding:18px;
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+
+.slide .kicker{
+  font-size:11px;
+  color:var(--teal);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  margin:0 0 6px;
+}
+
+.slide h3{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:16px;
+  margin:0 0 6px;
+  color:var(--navy);
+}
+
+.slide p{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  margin:0;
+  line-height:1.5;
+}
+
+.dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  padding:10px 0 12px;
+  background:var(--paper);
+}
+
+.dots span{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--hair);
+}
+
+.dots span.on{
+  background:var(--teal);
+}
+
+.devotion{
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--paper);
+  border:1px solid var(--hair);
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+
+.devotion .thumb{
+  aspect-ratio:16/9;
+  background:linear-gradient(135deg,var(--teal-light),var(--hair));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.devotion .thumb span.play{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  color:var(--navy);
+}
+
+.devotion .badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#fff;
+  border-radius:6px;
+  padding:3px 8px;
+  font-size:10px;
+  font-weight:600;
+  color:var(--ink-soft);
+}
+
+.devotion .cap{
+  padding:12px 14px;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+
+.photo-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+}
+
+.photo-strip .ph{
+  aspect-ratio:1;
+  border-radius:8px;
+  background:linear-gradient(135deg,var(--hair),var(--teal-light));
+}
+
+.strip-link{
+  display:block;
+  text-align:right;
+  font-size:12px;
+  color:var(--teal);
+  text-decoration:none;
+  margin-top:8px;
+  font-weight:500;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.grid a{
+  background:var(--paper);
+  border:1px solid var(--hair);
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+  text-decoration:none;
+  color:var(--ink);
+}
+
+.grid a span.ic{
+  display:block;
+  font-size:20px;
+  margin-bottom:6px;
+  color:var(--teal);
+}
+
+.grid a span.lb{
+  font-size:12px;
+  font-weight:500;
+}
+
+.grid a.wide{
+  grid-column:span 2;
+}
+
+.footer{
+  text-align:center;
+  padding:28px 16px 40px;
+  font-size:11px;
+  color:var(--ink-soft);
+}
+
+.footer a{
+  color:var(--teal);
+  text-decoration:none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <img src="https://raw.githubusercontent.com/tjckkmmu/mmu-unit/main/tjc_icon_512.png" alt="True Jesus Church logo">
+    <h1>True Jesus Church</h1>
+    <p>Kota Kinabalu</p>
+  </div>
+
+  <nav class="topnav" id="topnav">
+    <a href="https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec" class="primary">
+      <span class="ic">&#127925;</span><span class="lb">Sermons</span>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1X2G6ylRNRmepjOZFPw58zgr-0Qykhnsf" target="_blank" rel="noopener">
+      <span class="ic">&#128213;</span><span class="lb">History</span>
+    </a>
+    <a href="#beliefs">
+      <span class="ic">&#10024;</span><span class="lb">Beliefs</span>
+    </a>
+    <a href="#fellowships">
+      <span class="ic">&#128101;</span><span class="lb">Fellowships</span>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1B05afPbMNBI6cLAmGFFPoSRn9R2HAyEr" target="_blank" rel="noopener">
+      <span class="ic">&#128247;</span><span class="lb">Photos</span>
+    </a>
+    <a href="#more">
+      <span class="ic">&#8942;</span><span class="lb">More</span>
+    </a>
+  </nav>
+
+  <a class="sermon-cta" href="https://script.google.com/a/macros/tjc.org.my/s/AKfycbwkq6MD24AU29wFWlYpQrq82RjEB6p-loA2laq483kR2wCWzt9STgqCRWhDXTvuoa8pSA/exec">
+    <span class="icwrap">&#127925;</span>
+    <span class="txt">
+      <p>Sermon Library</p>
+      <p>Search and revisit past sermons</p>
+    </span>
+  </a>
+
+  <div class="section">
+    <p class="section-label">Upcoming Events</p>
+  </div>
+
+  <div style="padding:0 16px;">
+    <div class="carousel">
+      <div class="carousel-track" id="eventsTrack">
+
+        <a class="slide" href="https://drive.google.com/drive/folders/1quDR7mwszM4PGAGiY1pmm4joR-LwGrZE" target="_blank" rel="noopener">
+          <p class="kicker">13 Sep 2026, 8:00am &ndash; 4:00pm</p>
+          <h3>Persahabatan Persekutuan Seluruh Negeri</h3>
+          <p>Kuatkanlah dan teguhkanlah hatimu (Yos 1:6&ndash;7). Gereja Donggongon.</p>
+        </a>
+
+        <a class="slide" href="https://drive.google.com/drive/folders/1quDR7mwszM4PGAGiY1pmm4joR-LwGrZE" target="_blank" rel="noopener">
+          <p class="kicker">Date to be confirmed</p>
+          <h3>Evangelistic Service</h3>
+          <p>Details to be announced. Check back soon for the full schedule.</p>
+        </a>
+
+        <a class="slide" href="https://drive.google.com/drive/folders/1quDR7mwszM4PGAGiY1pmm4joR-LwGrZE" target="_blank" rel="noopener">
+          <p class="kicker">Date to be confirmed</p>
+          <h3>Spiritual Convocation</h3>
+          <p>Details to be announced. Check back soon for the full schedule.</p>
+        </a>
+
+      </div>
+      <div class="dots" id="eventsDots"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Devotion</p>
+  </div>
+
+  <div style="padding:0 16px;">
+    <a class="devotion" href="https://drive.google.com/drive/folders/1ZlAm7wAgEpWGxP3UosYo6YwwFHSZHfYf" target="_blank" rel="noopener">
+      <div class="thumb">
+        <span class="badge">Drive video</span>
+        <span class="play">&#9654;</span>
+      </div>
+      <div class="cap">A short devotional to start your day. Tap to watch.</div>
+    </a>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Latest Photos</p>
+  </div>
+
+  <div style="padding:0 16px;">
+    <div class="photo-strip">
+      <div class="ph"></div>
+      <div class="ph"></div>
+      <div class="ph"></div>
+    </div>
+    <a class="strip-link" href="https://drive.google.com/drive/folders/1B05afPbMNBI6cLAmGFFPoSRn9R2HAyEr" target="_blank" rel="noopener">View photo library &rarr;</a>
+  </div>
+
+  <div class="section" id="more">
+    <p class="section-label">More</p>
+  </div>
+
+  <div style="padding:0 16px 8px;">
+    <div class="grid">
+
+      <a href="https://drive.google.com/drive/folders/1X2G6ylRNRmepjOZFPw58zgr-0Qykhnsf" target="_blank" rel="noopener">
+        <span class="ic">&#128213;</span><span class="lb">History</span>
+      </a>
+
+      <a href="#" id="beliefs">
+        <span class="ic">&#10024;</span><span class="lb">Ten Basic Beliefs</span>
+      </a>
+
+      <a href="#" id="fellowships">
+        <span class="ic">&#128101;</span><span class="lb">Fellowships</span>
+      </a>
+
+      <a href="#">
+        <span class="ic">&#128227;</span><span class="lb">Evangelistic Services</span>
+      </a>
+
+      <a href="#">
+        <span class="ic">&#128293;</span><span class="lb">Spiritual Convocation</span>
+      </a>
+
+      <a href="https://sites.google.com/tjc.org.my/e-berita-ibu-gereja-sabah-2026?usp=sharing" target="_blank" rel="noopener">
+        <span class="ic">&#128240;</span><span class="lb">E-News KK</span>
+      </a>
+
+      <a href="https://www.facebook.com/TJCKK1928/" target="_blank" rel="noopener">
+        <span class="ic">&#128241;</span><span class="lb">Facebook</span>
+      </a>
+
+      <a href="#">
+        <span class="ic">&#128248;</span><span class="lb">Instagram</span>
+      </a>
+
+      <a class="wide" href="https://www.youtube.com/watch?v=nCybYXrTBN4" target="_blank" rel="noopener">
+        <span class="ic">&#9654;</span><span class="lb">YouTube</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    True Jesus Church, Kota Kinabalu<br>
+    <a href="https://www.facebook.com/TJCKK1928/" target="_blank" rel="noopener">Facebook</a>
+  </div>
+
+</div>
+
+<script>
+
+(function(){
+  var track = document.getElementById('eventsTrack');
+  var dotsWrap = document.getElementById('eventsDots');
+  var slides = track.children;
+  var count = slides.length;
+  var index = 0;
+
+  for (var i = 0; i < count; i++) {
+    var d = document.createElement('span');
+    if (i === 0) d.className = 'on';
+    dotsWrap.appendChild(d);
+  }
+  var dots = dotsWrap.children;
+
+  function go(i){
+    index = i;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    for (var j = 0; j < dots.length; j++) {
+      dots[j].className = (j === index) ? 'on' : '';
+    }
+  }
+
+  setInterval(function(){
+    go((index + 1) % count);
+  }, 4500);
+})();
+
+</script>
+
+</body>
+</html>
